@@ -15,12 +15,39 @@ func TestParseGrid(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	// for y := range grid {
 	// 	for x := range grid[y] {
 	// 		// fmt.Println(string(grid[x][y]))
 	// 	}
 	// }
-	fmt.Println(grid.getNumber(0, 0))
+
+	fmt.Println(grid.String())
+	fmt.Println()
+	fmt.Println()
+	fmt.Println()
+	sum := Process(grid)
+
+	fmt.Println()
+	fmt.Println()
+
+	fmt.Println(grid.String())
+	fmt.Println(sum)
+
+	// num := grid.getNumber(0, 2)
+	// fmt.Println(num)
+	// fmt.Println(grid.String())
+	// num = grid.getNumber(0, 1)
+	// fmt.Println()
+	// fmt.Println()
+	// fmt.Println()
+	// fmt.Println()
+	// fmt.Println(num)
+	// fmt.Println(grid.String())
+	// _ = grid.getNumber(0, 2)
+	// _ = grid.getNumber(0, 3)
+	// _ = grid.getNumber(0, 4)
+	// _ = grid.getNumber(0, 5)
 }
 
 // func TestParseLine(t *testing.T) {
