@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"unicode"
 )
 
@@ -120,42 +119,61 @@ func Process(grid *Grid) int {
 			if v == '.' {
 				continue
 			}
-
+			var localNumbers []int
 			if isSymbol(v) {
-				fmt.Println(string(v), r, c)
+				// fmt.Println(string(v), r, c)
 				// up 1, left 1
 				if n := grid.getNumber(r-1, c-1); n != 0 {
-					fmt.Println(n, "up 1, left 1")
-					sum += n
+					// fmt.Println(n, "up 1, left 1")
+					// localSum += n
+					localNumbers = append(localNumbers, n)
+					// runningCount++
 				}
 				// up 1
 				if n := grid.getNumber(r-1, c); n != 0 {
-					fmt.Println(n, "up 1")
-					sum += n
+					// fmt.Println(n, "up 1")
+					localNumbers = append(localNumbers, n)
+					// localSum += n
+					// runningCount++
 				}
 				if n := grid.getNumber(r-1, c+1); n != 0 {
-					fmt.Println(n, "up 1, right 1")
-					sum += n
+					// fmt.Println(n, "up 1, right 1")
+					localNumbers = append(localNumbers, n)
+					// localSum += n
+					// runningCount++
 				}
 				if n := grid.getNumber(r, c-1); n != 0 {
-					fmt.Println(n, "left 1")
-					sum += n
+					// fmt.Println(n, "left 1")
+					localNumbers = append(localNumbers, n)
+					// localSum += n
+					// runningCount++
 				}
 				if n := grid.getNumber(r, c+1); n != 0 {
-					fmt.Println(n, "right 1")
-					sum += n
+					// fmt.Println(n, "right 1")
+					localNumbers = append(localNumbers, n)
+					// localSum += n
+					// runningCount++
 				}
 				if n := grid.getNumber(r+1, c-1); n != 0 {
-					fmt.Println(n, "down 1, left 1")
-					sum += n
+					// fmt.Println(n, "down 1, left 1")
+					// localSum += n
+					// runningCount++
+					localNumbers = append(localNumbers, n)
 				}
 				if n := grid.getNumber(r+1, c); n != 0 {
-					fmt.Println(n, "down 1")
-					sum += n
+					// fmt.Println(n, "down 1")
+					localNumbers = append(localNumbers, n)
+					// localSum += n
+					// runningCount++
 				}
 				if n := grid.getNumber(r+1, c+1); n != 0 {
-					fmt.Println(n, "down 1, right 1")
-					sum += n
+					// fmt.Println(n, "down 1, right 1")
+					// localSum += n
+					// runningCount++
+					localNumbers = append(localNumbers, n)
+				}
+				if len(localNumbers) == 2 {
+					sum += localNumbers[0] * localNumbers[1]
 				}
 			}
 		}
